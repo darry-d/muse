@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>MUSE - Jewelry Store</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <table width="1024" border="0" align="center" cellspacing="32" cellpadding="0" class="main-table">
+        
+        <tr>
+            <td colspan="3" class="header-cell">
+                <div class="header-content">
+                    <span class="logo">MUSE</span>
+                    
+                    <nav class="navigation">
+                        <a href="#">ГОЛОВНА</a>
+                        <a href="#">КОЛЕКЦІЇ</a>
+                        <a href="#">КАТЕГОРІЇ</a>
+                        <a href="#">КОНТАКТИ</a>
+                    </nav>
+
+                    <div class="header-actions">
+                        <button class="login-btn">УВІЙТИ</button>
+                        
+                        <div class="search-wrapper">
+                            <input type="text" class="search-input" placeholder="Шукати...">
+                            <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#261C1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        </div>
+                        
+                        <div class="cart-wrapper">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#261C1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                            <span class="cart-dot"></span>
+                        </div>
+                        
+                        <div class="user-circle"></div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="4" class="sidebar-cell">
+                <div class="sidebar-sticky">
+                <h2 class="sidebar-title">CATALOG</h2>
+                
+                <div class="catalog-list">
+                    <div class="catalog-item">
+                        <div class="icon-circle"><img src="img/Ring.svg" alt="Каблучки"></div>
+                        <span>Каблучки</span>
+                    </div>
+                    <div class="catalog-item">
+                        <div class="icon-circle"><img src="img/Earrings.svg" alt="Сережки"></div>
+                        <span>Сережки</span>
+                    </div>
+                    <div class="catalog-item">
+                        <div class="icon-circle"><img src="img/Choker.svg" alt="Чокери"></div>
+                        <span>Чокери</span>
+                    </div>
+                    <div class="catalog-item">
+                        <div class="icon-circle"><img src="img/Gold chain.svg" alt="Ланцюги"></div>
+                        <span>Ланцюги</span>
+                    </div>
+                    <div class="catalog-item">
+                        <div class="icon-circle"><img src="img/Bracelet.svg" alt="Браслети"></div>
+                        <span>Браслети</span>
+                    </div>
+                    <div class="catalog-item">
+                        <div class="icon-circle"><img src="img/Jewelry.svg" alt="Сети"></div>
+                        <span>Сети</span>
+                    </div>
+                </div>
+                
+                <h3 class="filter-title">Фільтри:</h3>
+                <div class="filter-section">
+                    
+                    <div class="filter-group">
+                        <div class="filter-subtitle">Матеріал <span>⌄</span></div>
+                        <label class="radio-label"><input type="radio" name="material" checked> Золото</label>
+                        <label class="radio-label"><input type="radio" name="material"> Срібло</label>
+                        <label class="radio-label"><input type="radio" name="material"> Позолота</label>
+                    </div>
+
+                    <div class="filter-group">
+                        <div class="filter-subtitle">Колір металу <span>⌄</span></div>
+                        <label class="radio-label"><input type="radio" name="color"> Білий</label>
+                        <label class="radio-label"><input type="radio" name="color"> Двоколірний</label>
+                        <label class="radio-label"><input type="radio" name="color"> Жовтий</label>
+                        <label class="radio-label"><input type="radio" name="color"> Комбінований</label>
+                        <label class="radio-label"><input type="radio" name="color"> Чорний</label>
+                    </div>
+
+                   <div class="filter-group price-filter">
+                        <div class="filter-subtitle center-text">Ціна, грн</div>
+                        <div class="price-inputs">
+                            <input type="number" class="price-box" id="price-min" value="300" min="0">
+                            <input type="number" class="price-box" id="price-max" value="1500" min="0">
+                        </div>
+                        <input type="range" class="price-slider" id="price-range" min="300" max="1500" value="800">
+                        <button class="apply-btn">Застосувати</button>
+                    </div>
+                </div>
+                </div>
+            </td>
+            
+            <td colspan="2" class="banner-cell">
+                <div class="banner-content">
+                    <img src="img/banner.jpg" alt="New Collection" class="banner-img">
+                    <a href="#" class="banner-link">Переглянути &gt;&gt;</a>
+                </div>
+            </td>
+        </tr>
+<tr>
+            <td class="product-card">
+                <img src="img/earrings_bold.jpg" alt="Масивні сережки" class="product-img">
+                <div class="product-info">
+                    <h4 class="product-title">Масивні сережки-кільця "Bold"</h4>
+                    <div class="product-price">650 ₴</div>
+                    <button class="buy-btn">КУПИТИ</button>
+                </div>
+            </td>
+            <td class="product-card">
+                <img src="img/earrings_twist.jpg" alt="Фактурні сережки" class="product-img">
+                <div class="product-info">
+                    <h4 class="product-title">Фактурні сережки "Twist"</h4>
+                    <div class="product-price">600 ₴</div>
+                    <button class="buy-btn">КУПИТИ</button>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="product-card">
+                <img src="img/ring_pure.jpg" alt="Каблучка Pure" class="product-img">
+                <div class="product-info">
+                    <h4 class="product-title">Каблучка з прозорим кристалом "Pure"</h4>
+                    <div class="product-price">850 ₴</div>
+                    <button class="buy-btn">КУПИТИ</button>
+                </div>
+            </td>
+            <td class="product-card">
+                <img src="img/ring_wave.jpg" alt="Каблучка Wave" class="product-img">
+                <div class="product-info">
+                    <h4 class="product-title">Асиметрична каблучка "Wave"</h4>
+                    <div class="product-price">650 ₴</div>
+                    <button class="buy-btn">КУПИТИ</button>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="product-card">
+                <img src="img/ring_emerald.jpg" alt="Каблучка Emerald" class="product-img">
+                <div class="product-info">
+                    <h4 class="product-title">Каблучка з зеленим каменем "Emerald"</h4>
+                    <div class="product-price">900 ₴</div>
+                    <button class="buy-btn">КУПИТИ</button>
+                </div>
+            </td>
+            <td class="product-card">
+                <img src="img/ring_chain.jpg" alt="Каблучка Chain" class="product-img">
+                <div class="product-info">
+                    <h4 class="product-title">Плетена базова каблучка "Chain"</h4>
+                    <div class="product-price">550 ₴</div>
+                    <button class="buy-btn">КУПИТИ</button>
+                </div>
+            </td>
+        </tr>
+<tr>
+            <td></td> 
+            <td colspan="2" class="show-more-cell">
+                <button class="show-more-btn">ПОКАЗАТИ ЩЕ</button>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="3" class="footer-cell">
+                <div class="footer-content">
+                    
+                    <div class="footer-col">
+                        <h2 class="footer-logo">MUSE</h2>
+                        <p class="footer-desc">Створюємо прикраси, які підкреслюють<br>твою унікальність.</p>
+                        
+                        <div class="social-icons">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="4" x2="20" y2="20"></line><line x1="20" y1="4" x2="4" y2="20"></line></svg>
+                        </div>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Клієнтам</h4>
+                        <ul>
+                            <li>Інформація</li>
+                            <li>Доставка та оплата</li>
+                            <li>Обмін та повернення</li>
+                            <li>Подарункові сертифікати</li>
+                            <li>FAQ</li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Контакти</h4>
+                        <ul>
+                            <li>Зв'язок з нами</li>
+                            <li>+380 (99) 123-45-67</li>
+                            <li>hello@muse.ua</li>
+                            <li>м. Черкаси, вул. Центральна, 1</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="footer-bottom">
+                    <hr class="footer-line">
+                    <p>© 2026 MUSE. Всі права захищено.</p>
+                </div>
+            </td>
+        </tr>
+        </table>
+<script>
+        const maxPriceInput = document.getElementById('price-max');
+        const rangeSlider = document.getElementById('price-range');
+
+        // Коли рухаємо повзунок - оновлюється цифра в правому віконці
+        rangeSlider.addEventListener('input', function() {
+            maxPriceInput.value = this.value;
+        });
+
+        // Коли пишемо цифру ручками - повзунок стрибає на потрібне місце
+        maxPriceInput.addEventListener('input', function() {
+            rangeSlider.value = this.value;
+        });
+        // --- 1. ЛОГІКА ПОШУКУ ---
+        const searchIcon = document.querySelector('.search-icon');
+        const searchInput = document.querySelector('.search-input');
+
+        // При кліку на лупу - показуємо або ховаємо поле вводу
+        searchIcon.addEventListener('click', function() {
+            searchInput.classList.toggle('active');
+            if (searchInput.classList.contains('active')) {
+                searchInput.focus(); // Одразу ставимо курсор туди
+            }
+        });
+
+        // --- 2. РОЗУМНА ЛОГІКА КОШИКА ---
+
+        
+        const buyButtons = document.querySelectorAll('.buy-btn');
+        const cartDot = document.querySelector('.cart-dot');
+        let itemsInCart = 0;
+
+        buyButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                
+                
+                if (this.classList.contains('in-cart')) {
+                   
+                    this.classList.remove('in-cart');
+                    this.textContent = 'КУПИТИ'; 
+                    this.style.backgroundColor = ''; 
+                    itemsInCart--; 
+                } else {
+                   
+                    this.classList.add('in-cart');
+                    this.textContent = 'У КОШИКУ';
+                    this.style.backgroundColor = '#261C1A';
+                    itemsInCart++;
+                }
+
+                // Керуємо цяточкою: показуємо, якщо є хоч 1 товар, ховаємо, якщо 0
+                if (itemsInCart > 0) {
+                    cartDot.classList.add('active');
+                } else {
+                    cartDot.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

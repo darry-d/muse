@@ -1,0 +1,580 @@
+/* Глобальні налаштування */
+body {
+    background-color: #FBF0E6; 
+    color: #261C1A; 
+    font-family: 'Inter', sans-serif; /* Ось тут тепер Inter */
+    margin: 0;
+    padding: 0;
+}
+
+/* Прибираємо стандартне підкреслення посилань */
+a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* Стиль комірки шапки */
+/* --- ШАПКА --- */
+.header-cell {
+    background-color: #FFFFFF;
+    border-radius: 0 0 20px 20px;
+    padding: 20px 40px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between; /* Рівномірно розкидає лого, меню і праву частину */
+    align-items: center;
+}
+
+.navigation {
+    display: flex;
+    gap: 30px; /* Відстань між словами в меню */
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Відстань між кнопкою та іконками */
+}
+
+.user-circle {
+    width: 30px;
+    height: 30px;
+    background-color: #261C1A; /* Твій темний колір */
+    border-radius: 50%;
+}
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    font-family: 'Aboreto', display; /* Логотип залишається розкішним */
+}
+/* --- АНІМАЦІЯ ПОШУКУ (ВИПЛИВАЄ ЗНИЗУ) --- */
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative; /* Це надважливо, щоб поле трималося лупи */
+}
+
+.search-input {
+    /* Тепер це незалежний блок, який "літає" над сайтом */
+    position: absolute;
+    top: 40px; /* Опускаємо його під шапку */
+    right: 0; /* Рівняємо по правому краю */
+    width: 250px;
+    padding: 12px 20px;
+    background-color: #FFFFFF;
+    border: 1px solid #E5C8AA; /* Ніжна бежева рамочка */
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(38, 28, 26, 0.08); /* Красива легка тінь */
+    font-family: 'Inter', sans-serif;
+    color: #261C1A;
+    outline: none;
+    z-index: 10; /* Щоб воно перекривало банер і товари */
+    
+    /* Магія ховання: прозоре і опущене на 15 пікселів вниз */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Дуже плавна анімація */
+}
+
+/* Коли ми клікаємо на лупу, JS додає цей клас */
+.search-input.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Поле плавно "виринає" на своє місце */
+}
+
+/* --- МАГІЯ КОШИКА --- */
+.cart-wrapper {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+}
+
+.cart-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #C19673; /* Бежево-коричнева цяточка */
+    border-radius: 50%;
+    position: absolute;
+    top: -2px;
+    right: -4px;
+    opacity: 0; /* Спочатку прихована */
+    transform: scale(0);
+    transition: all 0.3s ease;
+}
+
+/* Клас для появи цяточки */
+.cart-dot.active {
+    opacity: 1;
+    transform: scale(1);
+}
+/* Кнопка "Увійти" */
+.login-btn {
+    background-color: #7C5840; /* Твій коричневий колір */
+    color: #FBF0E6;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+/* --- САЙДБАР --- */
+.sidebar-cell {
+    width: 320px; /* Примусово ставимо ширину з твого макета */
+    min-width: 320px; /* Забороняємо йому стискатися */
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 30px;
+    vertical-align: top;
+    box-sizing: border-box; /* Щоб відступи не ламали ширину */
+}
+
+.sidebar-title {
+    font-family: 'Aboreto', display;
+    text-align: center;
+    border-bottom: 1px solid #261C1A;
+    padding-bottom: 15px;
+    margin-top: 0;
+}
+/* --- САЙДБАР --- */
+.sidebar-cell {
+    width: 320px; 
+    min-width: 320px; 
+    vertical-align: top;
+    padding: 0; /* Забираємо відступи з самої табличної комірки */
+    /* Зверни увагу: тут більше немає background-color та border-radius! */
+}
+
+
+.sidebar-sticky {
+    background-color: #FFFFFF; 
+    border-radius: 20px; 
+    padding: 30px;
+    box-sizing: border-box; 
+    
+    
+    position: sticky;
+    top: 20px; 
+}
+
+
+.filter-title {
+    margin-top: 40px;
+    font-weight: 600;
+}
+
+/* --- БАНЕР --- */
+.banner-cell {
+    padding: 0; 
+    vertical-align: top;
+}
+
+/* Нова обгортка, яка буде підніматися */
+.banner-content {
+    position: relative; /* Щоб текст міг позиціюватися відносно цього блоку */
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(38, 28, 26, 0.03);
+    transition: all 0.3s ease; /* Плавна анімація підйому */
+}
+
+/* Ефект підйому банера при наведенні (як у карток) */
+.banner-content:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 15px 30px rgba(38, 28, 26, 0.12);
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+}
+
+/* Текст "Переглянути >>" поверх картинки */
+.banner-link {
+    position: absolute;
+    bottom: 50px; /* Відступ знизу (можеш змінити, щоб підняти/опустити текст) */
+    left: 50%; /* Ставимо рівно по центру... */
+    transform: translateX(-50%); /* ...і центруємо сам напис */
+    color: #FBF0E6; /* Світлий колір, щоб було видно на темному фоні */
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-decoration: none;
+    opacity: 0.7; /* Робимо трохи напівпрозорим */
+    transition: opacity 0.3s ease;
+}
+
+/* При наведенні на банер текст стає яскравішим */
+.banner-content:hover .banner-link {
+    opacity: 1;
+}
+/* --- ОНОВЛЕНІ КНОПКИ КАТЕГОРІЙ --- */
+.catalog-item {
+    background-color: #C19673; 
+    color: #FFFFFF;
+    padding: 5px 20px 5px 5px; /* Місце для кружечка зліва */
+    border-radius: 50px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center; /* Рівняємо іконку і текст по центру */
+    cursor: pointer;
+}
+
+.icon-circle {
+    width: 36px;
+    height: 36px;
+    background-color: #E5C8AA;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.icon-circle img {
+    width: 20px;
+    height: 20px;
+}
+.icon-circle {
+    width: 36px;
+    height: 36px;
+    background-color: #FFFFFF; /* Тепер вони чисто білі */
+    border-radius: 50%;
+    /* ... інший код залишається ... */
+}
+
+/* --- ФІЛЬТРИ --- */
+.filter-title {
+    margin-top: 35px;
+    font-weight: 500;
+    font-size: 18px;
+    border-bottom: 1px solid #261C1A;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-group {
+    margin-bottom: 20px;
+}
+
+.filter-subtitle {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between; /* Розкидає текст і "пташку" по краях */
+    align-items: center;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Відступ між крапочкою і текстом */
+    font-size: 14px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    color: #261C1A;
+}
+
+/* Робимо крапочки чорними */
+.radio-label input[type="radio"] {
+    accent-color: #261C1A;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+}
+
+/* --- ЦІНА ТА ПОВЗУНОК --- */
+.center-text {
+    justify-content: center;
+}
+
+.price-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+   
+}
+
+.price-box {
+    width: 35%;
+    padding: 8px;
+    border: 1px solid #7C5840;
+    border-radius: 20px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    background-color: transparent;
+    color: #261C1A;
+    -moz-appearance: textfield; /* Ховаємо стрілочки у Firefox */
+}
+
+/* Ховаємо стрілочки вводу цифр у Chrome/Safari */
+.price-box::-webkit-inner-spin-button, 
+.price-box::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+/* Кастомний дизайн повзунка */
+.price-slider {
+    -webkit-appearance: none; /* Вимикаємо стандартний дизайн браузера */
+    width: 100%;
+    height: 4px;
+    background: #261C1A; /* Темна лінія */
+    border-radius: 5px;
+    outline: none;
+    margin-bottom: 25px;
+}
+
+/* Дизайн самого "кружечка" (Thumb) */
+.price-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #FFFFFF; /* Біла серединка (виглядає як прозора на білому фоні) */
+    border: 3px solid #C19673; /* Твій бежевий колір для рамки */
+    cursor: pointer;
+}
+
+/* Те саме для браузера Firefox */
+.price-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 3px solid #C19673;
+    cursor: pointer;
+}
+.apply-btn {
+    width: 100%;
+    background-color: #7C5840;
+    color: #FBF0E6;
+    border: none;
+    padding: 12px;
+    border-radius: 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+}
+/* --- КАРТКИ ТОВАРІВ --- */
+/* --- КАРТКИ ТОВАРІВ --- */
+/* --- КАРТКИ ТОВАРІВ --- */
+/* --- КАРТКИ ТОВАРІВ --- */
+.product-card {
+    background-color: transparent !important; /* Жорстко вбиваємо фон табличної комірки */
+    padding: 0 !important; 
+    box-shadow: none !important; /* Забираємо тінь з квадратної комірки */
+    text-align: center;
+    vertical-align: top;
+}
+
+.product-img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1; 
+    display: block; 
+    margin: 0; 
+    /* Заокруглюємо тільки верхні кути жорстко: */
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.product-info {
+    background-color: #FFFFFF !important; 
+    padding: 25px 20px; 
+    /* Заокруглюємо тільки нижні кути жорстко: */
+    border-bottom-left-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
+    /* Додаємо красиву м'яку тінь до самої білої картки */
+    box-shadow: 0px 8px 15px rgba(38, 28, 26, 0.05); 
+}
+
+/* Наступні стилі залишаються без змін: */
+.product-title {
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0 0 15px 0;
+    color: #261C1A;
+    min-height: 40px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-price {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #261C1A;
+}
+
+.buy-btn {
+    background-color: #7C5840;
+    color: #FBF0E6;
+    border: none;
+    padding: 12px 0;
+    width: 70%;
+    border-radius: 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+}
+/* --- КНОПКА "ПОКАЗАТИ ЩЕ" --- */
+.show-more-cell {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.show-more-btn {
+    background-color: #7C5840; /* Твій темний колір */
+    color: #FBF0E6;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px; /* Сильне заокруглення, як у макеті */
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+/* Ефект при наведенні (hover) */
+.product-card:hover {
+    /* МАГІЯ ТІНІ: горизонтальний відступ, вертикальний відступ, розмиття, поширення, колір */
+    box-shadow: 0px 10px 20px rgba(38, 28, 26, 0.08); /* Твоя фірмова легка тінь */
+}
+/* --- КАРТКИ ТОВАРІВ --- */
+.product-card {
+    /* ... існуючі стилі (background, border, padding тощо) ... */
+
+    /* Спочатку картка "лежить" на сторінці - тінь мінімальна або відсутня */
+    box-shadow: 0px 4px 6px rgba(38, 28, 26, 0.03);
+    
+    /* Переміщення також нульове */
+    transform: translateY(0);
+    
+    /* Обов'язково додайте перехід (transition) для ПЛАВНОЇ анімації */
+    transition: all 0.3s ease; /* transition: all анімує і тінь, і transform */
+    cursor: pointer;
+}
+
+
+.product-card:hover {
+    
+    box-shadow: 0px 15px 30px rgba(38, 28, 26, 0.12); 
+    transform: translateY(-10px); 
+}
+
+/* --- ФУТЕР --- */
+.footer-cell {
+    background-color: #7C5840; /* Коричневий фон футера */
+    color: #FBF0E6; /* Світлий текст */
+    border-radius: 20px;
+    padding: 40px 50px 20px 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Розкидаємо 3 колонки рівномірно */
+    margin-bottom: 30px;
+}
+
+.footer-col {
+    flex-basis: 30%; /* Кожна колонка займає 30% місця */
+}
+
+.footer-logo {
+    font-family: 'Aboreto', display;
+    font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.footer-desc {
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+/* Іконки соцмереж */
+.social-icons {
+    display: flex;
+    gap: 15px; /* Відстань між іконками */
+}
+
+.social-icons svg {
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+/* Списки в футері */
+.footer-col h4 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.footer-col ul {
+    list-style: none; /* Забираємо стандартні крапки списку */
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    font-size: 13px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+/* Нижня смуга і копірайт */
+.footer-line {
+    border: none;
+    border-top: 1px solid rgba(251, 240, 230, 0.3); /* Напівпрозора світла лінія */
+    margin-bottom: 15px;
+}
+
+.footer-bottom p {
+    text-align: right;
+    font-size: 11px;
+    opacity: 0.6;
+    margin: 0;
+}
+/* --- ЕФЕКТИ ПРИ НАВЕДЕННІ (HOVER) --- */
+
+.login-btn:hover,
+.buy-btn:hover,
+.show-more-btn:hover {
+    background-color: #5A3F2D;
+    transition: background-color 0.3s ease; /* <--- ТУТ ВПИШИ СВІЙ КОЛІР */
+}
+
+/* Бонус: давай зробимо так, щоб і посилання в меню теж реагували на мишку */
+.navigation a:hover {
+    color: #7C5840; /* Текст ставатиме коричневим при наведенні */
+    transition: color 0.3s ease;
+}
+
+/* І кнопки категорій в сайдбарі (Каблучки, Сережки...) */
+.catalog-item:hover {
+    background-color: #7C5840; /* Ставатимуть темнішими */
+    transition: background-color 0.3s ease;
+}
